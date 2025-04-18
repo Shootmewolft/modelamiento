@@ -1,3 +1,3 @@
-export { Footer } from './Footer';
-export { Header } from './Header';
-export { ListItems } from './ListItems';
+export * from './Footer';
+export * from './Header';
+export * from './ToggleTheme';

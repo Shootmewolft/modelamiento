@@ -1,1 +1,1 @@
-export { fetching } from './fetching';
+export { fetching } from "./fetching"
