@@ -1,7 +1,9 @@
+import type { MethodType } from "@/models/fetching"
+
 export async function fetching<T, U>(
 	url: string,
 	body?: U,
-	method?: "GET" | "POST" | "PUT",
+	method?: MethodType,
 ): Promise<T | Error> {
 	try {
 		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${url}`, {
