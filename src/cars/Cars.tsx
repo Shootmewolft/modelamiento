@@ -5,7 +5,7 @@ import { getCars } from "./services/car.service"
 export async function Cars() {
 	const cars = await getCars()
 	if (cars instanceof Error) {
-		toast.error(cars.message)
+		toast(cars.message)
 
 		return (
 			<h2>
