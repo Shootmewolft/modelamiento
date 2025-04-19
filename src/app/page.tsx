@@ -1,5 +1,5 @@
+import { Cars as CarsContainer } from "@/cars/Cars"
+
 export default function Home() {
-	return (
-		<h1>hola</h1>
-	)
+	return <CarsContainer />
 }
