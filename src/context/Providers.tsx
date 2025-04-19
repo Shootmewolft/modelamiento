@@ -1,19 +1,19 @@
-import type { ReactNode } from "react";
-import { ThemeProvider } from "@/context";
+import { ThemeProvider } from "@/context"
+import type { ReactNode } from "react"
 
 interface Props {
-  children: ReactNode
-};
+	children: ReactNode
+}
 
 export function Providers({ children }: Props) {
-  return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      {children}
-    </ThemeProvider>
-  );
-};
+	return (
+		<ThemeProvider
+			attribute="class"
+			defaultTheme="light"
+			enableSystem
+			disableTransitionOnChange
+		>
+			{children}
+		</ThemeProvider>
+	)
+}

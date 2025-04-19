@@ -1,1 +1,1 @@
-export { Chevrolet as ChevroletIcon } from './Chevrolet';
+export { Chevrolet as ChevroletIcon } from "./Chevrolet"

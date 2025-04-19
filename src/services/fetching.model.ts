@@ -1,6 +1,6 @@
 import type { MethodType } from "@/models/fetching"
 
-export async function fetching<T, U>(
+export async function fetching<T, U = null>(
 	url: string,
 	body?: U,
 	method?: MethodType,
