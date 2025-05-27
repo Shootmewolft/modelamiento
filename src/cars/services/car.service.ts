@@ -1,5 +1,4 @@
 import { APP_ROUTES } from "@/consts"
-import { fetching } from "@/services"
 import { carAdapter } from "../adapters/car.adapter"
 import type {
 	CarFormData,
@@ -7,9 +6,10 @@ import type {
 	EndpointCar,
 	EndpointCarPost,
 } from "../models/car.model"
+import { del, get, post, put } from "@/services/fetching.model"
 
 export const getCars = async () => {
-	const cars = await fetching<EndpointCar[]>(APP_ROUTES.CARS)
+	const cars = await get<EndpointCar[]>(APP_ROUTES.GET_CARS)
 	if (cars instanceof Error) {
 		return cars
 	}
@@ -18,7 +18,7 @@ export const getCars = async () => {
 }
 
 export const getCar = async (id: number) => {
-	const car = await fetching<EndpointCar>(`${APP_ROUTES.CARS}/${id}`)
+	const car = await get<EndpointCar>(`${APP_ROUTES.GET_CARS}/${id}`)
 	if (car instanceof Error) {
 		return car
 	}
@@ -37,12 +37,11 @@ export const createCar = async (car: CarFormData) => {
 		peso_total_kg: car.weight,
 		precio_cop: car.price,
 		consumo_gl_km: car.fuelConsumption,
-		imagen_vehiculo: "https://i.imgure.com/4f2x5Jm.png",
+		imagen_vehiculo: "https://www.autolartechevrolet.co/content/dam/chevrolet/sa/co/es/master/home/crossovers-and-suvs/captiva-turbo-xl/colorizer/colorizer-captiva-XL-rojo.png?imwidth=2400",
 	}
-	const newCar = await fetching<EndpointCar, EndpointCarPost>(
-		APP_ROUTES.CARS,
-		carPost,
-		"POST",
+	const newCar = await post<EndpointCar, EndpointCarPost>(
+		APP_ROUTES.CREATE_CAR,
+		carPost
 	)
 	if (newCar instanceof Error) {
 		return newCar
@@ -51,6 +50,20 @@ export const createCar = async (car: CarFormData) => {
 	return formattedCar
 }
 
-export const updateCar = async (_id: number) => {}
+export const updateCar = async (id: number, newCar: EndpointCar) => {
+	const carUpdated = await put<EndpointCar, EndpointCarPost>(`${APP_ROUTES.GET_CARS}/${id}`, newCar)
+	if (carUpdated instanceof Error) {
+		return carUpdated
+	}
+	const formattedCar = carAdapter(carUpdated)
+	return formattedCar
+}
 
-export const deleteCar = async (_id: number) => {}
+export const deleteCar = async (id: number) => {
+	const result = await del(`${APP_ROUTES.GET_CARS}/${id}`)
+	console.log(`${APP_ROUTES.GET_CARS}/${id}`);
+	if (result instanceof Error) {
+		return result
+	}
+	return result
+}

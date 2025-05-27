@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         hostname: "www.chevrolet.com.co",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.autolartechevrolet.co",
+        pathname: "/**",
+      },
     ],
   },
   experimental: {

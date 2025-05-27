@@ -32,10 +32,7 @@ export async function createCar(
 				inputs: rawData,
 			}
 		}
-		// Simulate network delay
-		await new Promise((resolve) => setTimeout(resolve, 1000))
-
-		// await createCarService(validatedData.data)
+		await createCarService(validatedData.data)
 		revalidatePath(APP_ROUTES.HOME)
 		return {
 			success: true,
