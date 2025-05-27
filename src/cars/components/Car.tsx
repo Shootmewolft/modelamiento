@@ -17,6 +17,7 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import type { CarType } from "../models/car.model"
+import { MenuOptions } from "./MenuOptions"
 
 type Props = Omit<CarType, "chart">
 
@@ -36,6 +37,7 @@ export function Car({
 	return (
 		<Card className="w-full max-w-sm shadow-md overflow-hidden">
 			<CardHeader className="p-0 relative">
+				<MenuOptions id={id} />
 				<Image
 					src={image}
 					alt={name}
