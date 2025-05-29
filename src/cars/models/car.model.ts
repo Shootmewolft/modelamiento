@@ -38,4 +38,4 @@ export interface ActionResponse {
 }
 
 export type EndpointCarPost = Omit<EndpointCar, "id" | "imagen_grafica">
-export type CarFormData = Omit<CarType, "id" | "chart" | "image">
+export type CarFormData = Omit<CarType, "id" | "chart" | "image" | "fuelConsumption">

@@ -19,7 +19,6 @@ export async function createCar(
 			torque: Number(formData.get("torque")),
 			weight: Number(formData.get("weight")),
 			price: Number(formData.get("price")),
-			fuelConsumption: Number(formData.get("fuelConsumption")),
 			horsepower: Number(formData.get("horsepower")),
 		}
 

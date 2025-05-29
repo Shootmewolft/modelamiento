@@ -172,24 +172,6 @@ export function DialogCreateCar({ children }: Props) {
 							)}
 						</div>
 						<div className="flex justify-between items-center gap-4 relative pb-2">
-							<Label htmlFor="fuelConsumption" className="w-1/3">
-								Consumo de Combustible
-							</Label>
-							<Input
-								id="fuelConsumption"
-								name="fuelConsumption"
-								type="number"
-								placeholder="10 km/l"
-								className={`${state.errors?.fuelConsumption && "border-red-500"}`}
-								defaultValue={state.inputs?.fuelConsumption}
-							/>
-							{state.errors?.fuelConsumption && (
-								<span className="absolute left-[29%] bottom-[-11px] text-xs font-bold text-red-500">
-									{state.errors.fuelConsumption[0]}
-								</span>
-							)}
-						</div>
-						<div className="flex justify-between items-center gap-4 relative pb-2">
 							<Label htmlFor="horsepower" className="w-1/3">
 								Caballos de Fuerza
 							</Label>

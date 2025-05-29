@@ -16,8 +16,11 @@ export interface Props {
 }
 
 export async function DialogGraph({ children }: Props) {
-  const data = await getGraph<{ imagen_grafica: string }>(APP_ROUTES.GRAPH)
-  console.log(data);
+  const data = await getGraph<{
+    imagen_grafica: string
+    consumo_estimado: string
+  }>(APP_ROUTES.GRAPH)
+
   if (data instanceof Error || !data.imagen_grafica) {
     return (
       <Dialog>
@@ -30,15 +33,27 @@ export async function DialogGraph({ children }: Props) {
       </Dialog>
     )
   }
-  const { imagen_grafica: imageGraph } = data
+  const { imagen_grafica: imageGraph, consumo_estimado } = data
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[900px]">
         <DialogHeader>
           <DialogTitle>La gráfica de la predicción</DialogTitle>
         </DialogHeader>
-        <Image src={imageGraph} alt="Gráfica de predicción" />
+        <Image
+          src={imageGraph}
+          width={800}
+          height={800}
+          alt="Gráfica de predicción"
+          style={{
+            width: "100%",
+            height: "auto",
+            maxHeight: "80vh",
+            objectFit: "contain",
+          }}
+        />
+        <h2 className="text-3xl font-bold text-center">El consumo de gasolina del vehículo es {consumo_estimado}</h2>
       </DialogContent>
     </Dialog>
   )

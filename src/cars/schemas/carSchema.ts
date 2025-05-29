@@ -22,11 +22,5 @@ export const carSchema = z.object({
 		.positive()
 		.min(1, "El peso es requerido")
 		.max(10000, "El peso no puede ser mayor a 10.000"),
-	price: z.number().positive().min(1, "El precio es requerido"),
-	fuelConsumption: z
-		.number()
-		.int()
-		.positive()
-		.min(1, "El consumo es requerido")
-		.max(150, "El consumo no puede ser mayor a 150"),
+	price: z.number().positive().min(1, "El precio es requerido")
 })

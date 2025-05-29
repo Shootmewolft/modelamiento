@@ -23,7 +23,6 @@ type Props = Omit<CarType, "chart">
 
 export function Car({
 	engineDisplacement,
-	fuelConsumption,
 	fuelType,
 	horsepower,
 	image,
@@ -54,9 +53,6 @@ export function Car({
 				<div className="inline-flex flex-wrap gap-2">
 					<Badge className="bg-orange-100 text-orange-700">
 						<Wrench className="mr-1" /> {engineDisplacement} cc
-					</Badge>
-					<Badge className="bg-green-100 text-green-700">
-						<Gauge className="mr-1" /> {fuelConsumption} km/l
 					</Badge>
 					<Badge className="bg-blue-100 text-blue-700">
 						<Droplet className="mr-1" /> {fuelType}

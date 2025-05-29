@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         hostname: "www.autolartechevrolet.co",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/**",
+      },
     ],
   },
   experimental: {

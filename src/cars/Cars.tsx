@@ -1,18 +1,10 @@
-import { toast } from "sonner"
 import { CarList } from "./components/CarList"
 import { getCars } from "./services/car.service"
 
 export async function Cars() {
-	const cars = await getCars()
-	if (cars instanceof Error) {
-		toast(cars.message)
-
-		return (
-			<h2>
-				Ocurrió un error para mostrar los vehículos:
-				<strong>{cars.message}</strong>
-			</h2>
-		)
-	}
-	return <CarList cars={cars} />
+  const cars = await getCars()
+  if (cars instanceof Error) {
+    return <h2>Ocurrió un error para mostrar los vehículos. Inténtelo nuevamente.</h2>
+  }
+  return <CarList cars={cars} />
 }

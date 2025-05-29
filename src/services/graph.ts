@@ -3,7 +3,7 @@ export async function getGraph<T>(url: string): Promise<T | Error> {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${url}`, {
       method: "GET"
     });
-    if (!response.ok) throw new Error("Error fetching data");
+    if (!response.ok) throw new Error("Error fetching on graph");
     const json: T = await response.json();
     return json;
   } catch (error) {

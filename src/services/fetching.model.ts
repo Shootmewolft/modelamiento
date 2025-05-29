@@ -6,7 +6,7 @@ export async function get<T>(url: string): Promise<T | Error> {
 				"Content-Type": "application/json",
 			},
 		});
-		if (!response.ok) throw new Error("Error fetching data");
+		if (!response.ok) throw new Error("Error fetching GET");
 		const json: T = await response.json();
 		return json;
 	} catch (error) {
@@ -23,7 +23,7 @@ export async function post<T, U = unknown>(url: string, body: U): Promise<T | Er
 			},
 			body: JSON.stringify(body),
 		});
-		if (!response.ok) throw new Error("Error fetching data");
+		if (!response.ok) throw new Error("Error fetching POST");
 		const json: T = await response.json();
 		return json;
 	} catch (error) {
@@ -40,7 +40,7 @@ export async function put<T, U = unknown>(url: string, body: U): Promise<T | Err
 			},
 			body: JSON.stringify(body),
 		});
-		if (!response.ok) throw new Error("Error fetching data");
+		if (!response.ok) throw new Error("Error fetching PUT");
 		const json: T = await response.json();
 		return json;
 	} catch (error) {
@@ -56,7 +56,7 @@ export async function del<T>(url: string): Promise<T | Error> {
 				"Access-Control-Allow-Origin": "*",
 			}
 		});
-		if (!response.ok) throw new Error("Error fetching data");
+		if (!response.ok) throw new Error("Error fetching DELETE");
 		const json: T = await response.json();
 		return json;
 	} catch (error) {

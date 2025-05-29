@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Logs } from "lucide-react"
 import { deleteCar } from "../services/car.service"
+import { APP_ROUTES } from "@/consts"
 
 interface Props {
   id: number
